@@ -20,10 +20,10 @@ import {logo,lang,bullet,call,text,
     add} from '../../assets';
 import styles from './styles';
 
-function intro (props){
+function home (props){
     return(
      <View>
-         <Header leftnavigation = {props.navigation} rightnavigation = {props.navigation} center = {logo} right={lang} left={call}  />
+         <Header leftnavigation = {()=>props.navigation.navigate('ScreenStack',{screen:'Contact'})} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={call}  />
          <Text style={styles.heading} >Put your request {'\n'} Keep it brief and Simple ,{'\n'} Select any two types</Text>
          <View style={styles.container} >
             <RQButton 
@@ -60,4 +60,4 @@ function intro (props){
      
     )
 }
-export default intro; 
+export default home; 

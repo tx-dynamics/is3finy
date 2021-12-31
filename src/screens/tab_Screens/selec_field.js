@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {View,Text,TextInput,RefreshControl,PermissionsAndroid,Image,ActivityIndicator,FlatList,Switch} from 'react-native'
+import {View,Text,TextInput,TouchableOpacity,PermissionsAndroid,Image,ActivityIndicator,FlatList,Switch} from 'react-native'
 import {
     responsiveHeight,
     responsiveScreenHeight,
@@ -7,7 +7,7 @@ import {
     responsiveWidth,
   } from 'react-native-responsive-dimensions';
   import LinearGradient from 'react-native-linear-gradient';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import {useIsFocused} from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/header';
@@ -26,21 +26,22 @@ function category (props){
     return(
      <View>
          <Header leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+          <KeyboardAwareScrollView style={{marginBottom:responsiveHeight(15)}} >
           <View style={[styles.cat_con,{marginTop:responsiveHeight(5)}]} >
-             <View style={styles.cat} >
+             <TouchableOpacity onPress={()=>props.navigation.navigate('FieldList')} style={styles.cat} >
                  <Text style={styles.cat_txt} >Medicine</Text>
-             </View>
-             <View style={styles.cat} >
+             </TouchableOpacity>
+             <TouchableOpacity onPress={()=>props.navigation.navigate('FieldList')} style={styles.cat} >
                  <Text style={styles.cat_txt} >Surgery</Text>
-             </View>
+             </TouchableOpacity>
         </View>
         <View style={[styles.cat_con,{marginTop:responsiveHeight(4)}]} >
-             <View style={styles.cat} >
+             <TouchableOpacity onPress={()=>props.navigation.navigate('FieldList')} style={styles.cat} >
                  <Text style={styles.cat_txt} >Pediatrics</Text>
-             </View>
-             <View style={styles.cat} >
+             </TouchableOpacity>
+             <TouchableOpacity onPress={()=>props.navigation.navigate('FieldList')} style={styles.cat} >
                  <Text style={[styles.cat_txt,{textAlign:'center'}]} >Obs. and{'\n'}Gyn</Text>
-             </View>
+             </TouchableOpacity>
         </View>
         <Text style={[styles.selectiontxt,{marginTop:responsiveHeight(12)}]} >Or Put your doctor ID to send the inquiry{'\n'}directly to him</Text>
         <View style={styles.inputConatiner} >
@@ -55,6 +56,7 @@ function category (props){
         <View style={{marginTop:responsiveHeight(6)}} >
            <GradButton navigation={()=>props.navigation.navigate('Selection')} txt = {'Next'}/>
        </View>
+       </KeyboardAwareScrollView>
      </View>   
      
     )

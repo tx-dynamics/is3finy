@@ -443,7 +443,7 @@ function Rqtext (props){
                             width:'80%',
                             alignSelf:'center',
                             alignItems:'center',
-                            borderColor:'black'
+                            borderColor:'#a9a9a9'
                         }}
                     >
                         <Text style={{margin:10,color:'rgba(4, 4, 4, 0.23)'}} >Cancel</Text>

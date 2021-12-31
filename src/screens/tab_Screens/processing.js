@@ -33,7 +33,7 @@ function processing (props){
               </TouchableOpacity>
         </View>
        <View style={{marginTop:responsiveHeight(10)}} >
-           <GradButton navigation={()=>props.navigation.navigate('Selection')} txt = {'Next'}/>
+           <GradButton navigation={()=>props.navigation.navigate('Signup')} txt = {'Next'}/>
        </View>
 
      </View>   

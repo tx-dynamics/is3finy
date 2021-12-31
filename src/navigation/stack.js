@@ -8,6 +8,14 @@ import RQVideo from '../screens/tab_Screens/home_screens/req_video'
 import RQVoice from '../screens/tab_Screens/home_screens/req_voice'
 import Processing from '../screens/tab_Screens/processing'
 import Category from '../screens/tab_Screens/selec_field'
+import Contact from '../screens/tab_Screens/contact_us'
+import FieldList from '../screens/tab_Screens/field_list'
+import Signup from '../screens/tab_Screens/auth/signup'
+import Number from '../screens/tab_Screens/auth/getnumber'
+import Otp from '../screens/tab_Screens/auth/otp'
+import PaymentInstruct from '../screens/tab_Screens/payment_instruct'
+import PaymentSelect from '../screens/tab_Screens/payment_select'
+import Payment from '../screens/tab_Screens/payment'
 
 const Stack = createStackNavigator();
 
@@ -45,6 +53,46 @@ const AudiofileStack = () => {
       <Stack.Screen
         name="Category"
         component={Category}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Contact"
+        component={Contact}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="FieldList"
+        component={FieldList}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Signup"
+        component={Signup}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Number"
+        component={Number}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Otp"
+        component={Otp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="PaymentInstruct"
+        component={PaymentInstruct}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="Payment"
+        component={Payment}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="PaymentSelect"
+        component={PaymentSelect}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

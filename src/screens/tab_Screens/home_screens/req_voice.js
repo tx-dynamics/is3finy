@@ -39,13 +39,13 @@ function Rqvoice (props){
     const audioRecorderPlayer = useRef(new AudioRecorderPlayer())
     const [input, setinput] = useState('')
     const [recordSecs, setrecordSecs] = useState(0)
-    const [recordTime, setrecordTime] = useState('00:00:00')
+    const [recordTime, setrecordTime] = useState('00:00')
     const [recording, setrecording] = useState(false)
     const [play, setplay] = useState(false)
     const [isplay, setisplay] = useState(false)
     // const [ispause, setispause] = useState(false)
-    const [duration, setduration] = useState('00:00:00')
-    const [playtime, setplaytime] = useState('00:00:00')
+    const [duration, setduration] = useState('00:00')
+    const [playtime, setplaytime] = useState('00:00')
     const [audio, setaudio] = useState('')
 
     async function onStartRecord () {
@@ -88,10 +88,11 @@ function Rqvoice (props){
         const meteringEnabled = false;
     
         const result = await audioRecorderPlayer.current.startRecorder(undefined,audioSet,meteringEnabled);
+        settimer()
         audioRecorderPlayer.current.addRecordBackListener((e:RecordBackType) => {
             setrecordSecs(e.currentPosition)
             setrecordTime(
-                audioRecorderPlayer.current.mmssss(
+                audioRecorderPlayer.current.mmss(
                 Math.floor(e.currentPosition),
                 )
             )
@@ -107,6 +108,37 @@ function Rqvoice (props){
         console.log(result);
       };
 
+      function settimer(){
+        let interval;
+        var secs = 0;
+        const startTimer = () => {
+          // console.log(recording);
+          interval = setInterval(() => {
+            // console.log(secs);
+            secs = secs + 1;
+  
+            if (secs === 5) {
+              console.log("calling");
+              // setisdisable(false);
+              // setindex(true);
+              // setontimer(false);
+              clearInterval(interval);
+  
+              // setRecording(recording);
+              setTimeout(() => {
+                // alert('stopped called')
+                onStopRecord();
+              }, 500);
+            //   console.log("called");
+            } else {
+            //   setvideo(uri);
+            }
+          }, 1000);
+        };
+        clearInterval(interval);
+        startTimer();
+  
+    }
 
       async function onStopRecord  ()  {
         const result = await audioRecorderPlayer.current.stopRecorder();
@@ -130,8 +162,8 @@ function Rqvoice (props){
         const msg = await audioRecorderPlayer.current.startPlayer();
         console.log(msg);
         audioRecorderPlayer.current.addPlayBackListener((e) => {
-         setplaytime(audioRecorderPlayer.current.mmssss(Math.floor(e.currentPosition))),
-         setduration(audioRecorderPlayer.current.mmssss(Math.floor(e.duration)));
+         setplaytime(audioRecorderPlayer.current.mmss(Math.floor(e.currentPosition))),
+         setduration(audioRecorderPlayer.current.mmss(Math.floor(e.duration)));
         //  this.setState({
         //     currentPositionSec: e.currentPosition,
         //     currentDurationSec: e.duration,

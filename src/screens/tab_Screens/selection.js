@@ -23,7 +23,7 @@ import styles from './styles';
 function selection (props){
     return(
      <View>
-         <Header leftnavigation = {props.navigation} rightnavigation = {props.navigation} center = {logo} right={lang} left={call}  />
+         <Header leftnavigation = {()=>props.navigation.navigate('ScreenStack',{screen:'Contact'})} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={call}  />
           <View style={styles.selectionCont} >
               <Text style={styles.selectiontxt} >Do you want our system to direct your{'\n'} inquiry to the suitable replies?</Text>
               <TouchableOpacity onPress={()=>props.navigation.navigate('ScreenStack',{screen:'Processing'})} >

@@ -7,21 +7,26 @@ import {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor:'#2C2C2C',
-    // justifyContent: 'center',
-    alignItems: 'center',
+    height:'100%',
   },
-  splashStyle: {
-    justifyContent:'center',
-    height: '100%',
-    marginTop:responsiveScreenHeight(28),
-    width: Dimensions.get('window').width,
-  },
+  bd:{height:'100%',width:'100%'},
+  bg_color:{backgroundColor:'#000000AF',height:'100%'},
   container:{
-    // width:'90%',
-    marginTop:responsiveHeight(5),
-    // alignSelf:'center'
+    alignItems:'center',
+    marginTop:responsiveHeight(10),
   },
+  signup:{width:335,height:51,borderRadius:10,alignSelf:'center',justifyContent:'center',alignItems:'center'},
+  contary:
+  {
+    flexDirection:'row',
+    width:125,height:44,
+    borderRadius:8,
+    alignSelf:'center',
+    justifyContent:'center',
+    alignItems:'center',
+    marginTop:responsiveHeight(5),
+    borderWidth:2,
+    borderColor:'#FFFFFF'},
   heading:{
       textAlign:'center',
       fontWeight:'700',
@@ -30,40 +35,7 @@ const styles = StyleSheet.create({
       color:'black',
       marginTop:10
   },
-  rqBtn:{
-    justifyContent:'center',
-    width:321,
-    height:51,
-    borderRadius:10,
-    backgroundColor:'rgba(108, 226, 0, 0.1)',
-    alignSelf:'center'
-  },
-  rqtxt:{
-    fontSize:14,
-    fontWeight:'600',
-    fontFamily:'Poppins',
-    width:'75%',
-    marginLeft:13,
-    color:'black'
-  },
-    selectiontxt:{
-      fontFamily:'Poppins',
-      fontWeight:'500',
-      color:'black',
-      fontSize:14,
-      margin:15,
-      textAlign:'center'
-    },
-    selectionCont:{
-      width:314,
-      height:170,
-      backgroundColor:'rgba(108, 226, 0, 0.1)',
-      alignItems:'center',
-      marginTop:responsiveHeight(5),
-      alignSelf:'center',
-      borderRadius:10
-
-    },
+  
     next:{
       width:32.38,
       height:32.38,
@@ -115,14 +87,14 @@ const styles = StyleSheet.create({
         height:48,
         alignSelf:'center',
         marginTop:25,
-        borderRadius:10,
-        backgroundColor:'rgba(108, 226, 0, 0.1)'
+        borderRadius:4,
+        backgroundColor:'rgba(172, 172, 172, 0.49)'
     },
     input:{
-        color:'black',
-        alignSelf:'center',
+        color:'white',
         fontSize:16,
-        fontWeight:'600',
+        fontWeight:'500',
+        marginLeft:responsiveHeight(2),
         fontFamily:'Poppins'
     },
     watsapp:{
@@ -164,36 +136,45 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       fontSize: 18
     },
-    container:{
-      // width:'90%',
-      marginTop:responsiveHeight(5),
-      // alignSelf:'center'
-    },
-    bullet:{width:11,height:11,marginTop:6,marginLeft:20},
-    bulletxt:{color:'black',marginLeft:20,fontSize:14,fontWeight:'500',fontFamily:'Poppins'},
-    bullent_cont:{alignItems:'center',justifyContent:'center',width:18,height:18,borderRadius:100,borderWidth:2,borderColor:'#6CE200',marginLeft:responsiveWidth(4)},
-    bullet_inside:{width:12,height:12,borderRadius:100,backgroundColor:'#6CE200'},
-    paytxt:{width:'66%',fontFamily:'Lato',fontSize:16,fontWeight:'500',marginLeft:responsiveWidth(4),color:'black'},
-    modalcontainer:{
-      marginTop: '50%',
-      bottom: 0,
-      // position: 'absolute',
-      width: '90%',
-      alignItems:'center',
-      alignSelf:'center',
-      backgroundColor: '#F8F8F8',
-      borderRadius: 15,
-      // borderTopRightRadius: 15,
-      shadowColor: '#000',
-      shadowOffset: {
-          width: 0,
-          height: 8,
+    borderStyleBase: {
+        width: 30,
+        height: 45
       },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 10,
-      height:269
+     
+      borderStyleHighLighted: {
+        borderColor: "#03DAC6",
       },
-      modaltxt:{fontSize:13,fontWeight:'400',fontFamily:'Poppins',textAlign:'center',color:'black'}
+     
+      underlineStyleBase: {
+        width: 30,
+        height: 45,
+        borderWidth: 0,
+        borderBottomWidth: 1,
+      },
+     
+      underlineStyleHighLighted: {
+        borderColor: "#03DAC6",
+      },
+      modalcontainer:{
+        marginTop: '30%',
+        bottom: 0,
+        // position: 'absolute',
+        width: '90%',
+        alignItems:'center',
+        alignSelf:'center',
+        backgroundColor: '#F8F8F8',
+        borderRadius: 15,
+        // borderTopRightRadius: 15,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 8,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 10,
+        height:470
+        },
+        modaltxt:{fontSize:13,fontWeight:'400',fontFamily:'Poppins',textAlign:'center',color:'black'}
 });
 export default styles;
