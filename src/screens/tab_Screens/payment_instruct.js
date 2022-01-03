@@ -22,7 +22,7 @@ import styles from './styles';
 function processing (props){
     return(
      <View>
-         <Header leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header leftstyle={{width:16,height:14,marginLeft:8}} leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
           <View style={[styles.processingCont,{alignItems:'flex-start',height:246}]} >
           <View style={[styles.container,{marginTop:responsiveHeight(3)}]} >
                 <View style={{flexDirection:'row'}} >

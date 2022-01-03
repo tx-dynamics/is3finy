@@ -19,7 +19,8 @@ import {logo,lang,save,
 import styles from './styles';
 import DocumentPicker from 'react-native-document-picker';
 import { BlurView } from "@react-native-community/blur";
-import { SafeAreaProviderCompat } from '@react-navigation/elements';
+var RNFS = require('react-native-fs');
+
 const image = [
     add_pic,
     add_pic,
@@ -28,9 +29,10 @@ const image = [
 
 function Rqtext (props){
 
+    const isFocused = useIsFocused();
     const camera = useRef(null)
     const [input, setinput] = useState('')
-    const [images, setimages] = useState([])
+    const [images, setimages] = useState([ add_pic,add_pic])
     const [single, setsingle] = useState('')
     const [ismodal, setismodal] = useState(false)
     const [capture, setcapture] = useState(false)
@@ -44,9 +46,9 @@ function Rqtext (props){
     const [stopwatchReset, setstopwatchReset] = useState(false);
 
     useEffect(() => {
-        setimages(image)
-        
-    }, [])
+        // setimages(image)
+        return ()=> {setimages([])}
+    }, [isFocused])
 
     function flipcamera (){
         setflipcam(!flipcam)
@@ -76,22 +78,22 @@ function Rqtext (props){
         // console.log(data);
       };
 
-      function savepic(){
-        var res = images.map((item,index)=>{
-            if(item === add_pic){
-                images.splice(item[index],1)
-                // console.log("true");
-                // return image.push(imageUri)
-                return [...images,single]   
-            }
-        })
-        setTimeout(() => {
-            // console.log(res);
-            setimages(res[0])                
-        }, 2000);
-        setcapture(false)
-        setcameraopen(false)
-      }
+    function savepic(){
+    var res = images.map((item,index)=>{
+        if(item === add_pic){
+            images.splice(item[index],1)
+            // console.log("true");
+            // return image.push(imageUri)
+            return [...images,single]   
+        }
+    })
+    setTimeout(() => {
+        // console.log(res);
+        setimages(res[0])                
+    }, 2000);
+    setcapture(false)
+    setcameraopen(false)
+    }
 
     // async function _pickImage  ()  {
 
@@ -169,20 +171,23 @@ function Rqtext (props){
         });
         let arr = [];
         res.map(item => {
-            RNFS.readFile(item.uri, 'base64').then(res => {
-            seturl(`data:image/png;base64,${res}`);
+            RNFS.readFile(item.uri, 'base64').then(async(res) => {
+            await setsingle(`data:image/png;base64,${res}`);
             });
-            arr.push({
-            photoName: item.name,
-            photoLabel: item.name,
-            photoSize: item.size,
-            photo: url,
-            });
+            // arr.push({
+            // photoName: item.name,
+            // photoLabel: item.name,
+            // photoSize: item.size,
+            // photo: url,
+            // });
+            setTimeout(() => {
+                savepic()
+            }, 3000);
         });
         setismodal(false);
-        settype('photos');
-        console.log('Images', arr);
-        setphotos(arr);
+        // settype('photos');
+        // console.log('Images', single);
+        // setphotos(arr);
         } catch (err) {
         if (DocumentPicker.isCancel(err)) {
             // User cancelled the picker, exit any dialogs or menus and move on
@@ -194,7 +199,13 @@ function Rqtext (props){
 
       function remove_image(index){
         //   alert(index)
-        var res = images.splice(index,1)
+          if(index === 0 ){
+            var res = images.splice(index+1,1)
+
+          }else{
+            var res = images.splice(index-1,1)
+
+          }
         // console.log(images[1]);
         //   var res = images.map((item,index)=>{
         //       if(index === indx){
@@ -295,6 +306,7 @@ function Rqtext (props){
             center = {logo}
             right={lang}
             left={back} 
+            leftstyle={{width:16,height:14,marginLeft:8}}
         />
          <Text style={[styles.heading,{marginTop:responsiveHeight(2)}]} >Add At Least 2 Pictures</Text>
          <View  >
@@ -403,6 +415,7 @@ function Rqtext (props){
                             style={{
                             width: 33,
                             height: 33,
+                            // marginBottom:4
                             }}
                         />
                         <Text style={{fontSize:14,fontWeight:'400',color:'black'}}>Camera</Text>
@@ -426,13 +439,14 @@ function Rqtext (props){
                         }}>
                         <Image
                             source={gal}
-                            // resizeMode="contain"
+                            // resizeMode="cover"
                             style={{
-                            width: 38.25,
-                            height: 29.75,
+                                marginTop:-10,
+                                width: 42,
+                                height: 48,
                             }}
                         />
-                        <Text style={{fontSize:14,fontWeight:'400',color:'black'}} >Gallery</Text>
+                        <Text style={{fontSize:14,fontWeight:'400',color:'black',marginTop:-10}} >Gallery</Text>
                         </TouchableOpacity>
                     </View>
                     </View>

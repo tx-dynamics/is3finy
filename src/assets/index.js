@@ -45,3 +45,5 @@ export const gpay = require('./images/gpay.png');
 export const card = require('./images/card.png');
 export const chip = require('./images/chip.png');
 export const donepay = require('./images/done_pay.png');
+export const info = require('./images/info.png');
+export const notific = require('./images/notific.png');

@@ -24,7 +24,14 @@ function Rqtext (props){
 
     return(
      <View>
-         <Header leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header 
+            leftnavigation = {()=>props.navigation.goBack()}
+            rightnavigation = {props.navigation}
+            center = {logo}
+            right={lang}
+            left={back}
+            leftstyle={{width:16,height:14,marginLeft:8}}
+             />
          <Text style={[styles.heading,{marginTop:responsiveHeight(2)}]} >Write Text Here...</Text>
          <View style={styles.inputConatiner} >
             <View style={{width:'100%',height:'90%'}} >

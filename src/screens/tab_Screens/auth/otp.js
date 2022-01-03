@@ -29,7 +29,7 @@ function signup (props){
     <KeyboardAwareScrollView style={styles.mainContainer} >
      <ImageBackground source={patient} style={styles.bg} >
          <View style={styles.bg_color} >
-            <Header backgroundColor='transparent' leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
+            <Header leftstyle={{width:16,height:14,marginLeft:8}} backgroundColor='transparent' leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
             <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'600',fontFamily:'Lato'}]} >Enter Code</Text>
             {/* <OTPInputView pinCount={4} /> */}
             <OTPInputView
@@ -45,7 +45,7 @@ function signup (props){
             })}
         />
             <View style={{marginTop:responsiveHeight(10)}} >
-            <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginLeft:responsiveWidth(8),marginBottom:responsiveHeight(1)}]} >Resend 0:23</Text>
+            <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginLeft:35,marginBottom:responsiveHeight(1)}]} >Resend 0:23</Text>
                 <GradButton style={styles.signup}  navigation={()=>setismodal(true)} txt = {'Continue'}/>
             </View>
             <View style={{height:responsiveScreenHeight(40)}}  />
@@ -97,7 +97,7 @@ function signup (props){
                     start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#7CFF04', '#00AE55']} 
                     style={{width:63,height:27,justifyContent:'center',alignItems:'center',borderRadius:4}}
                 >
-                    <Text style={{color:'#FFFFFF'}} >Accept</Text>
+                    <Text style={{color:'#FFFFFF'}} >Allow</Text>
                 </LinearGradient>
             </TouchableOpacity>
             </View>

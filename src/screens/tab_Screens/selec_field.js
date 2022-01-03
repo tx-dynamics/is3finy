@@ -54,7 +54,7 @@ function category (props){
             />
         </View>
         <View style={{marginTop:responsiveHeight(6)}} >
-           <GradButton navigation={()=>props.navigation.navigate('Selection')} txt = {'Next'}/>
+           <GradButton navigation={()=>props.navigation.navigate('Selection')} txt = {'Enter'}/>
        </View>
        </KeyboardAwareScrollView>
      </View>   

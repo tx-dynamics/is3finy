@@ -27,12 +27,13 @@ function fieldselect ({props,item,setItem}){
                     <View style={{width:335,flexDirection:'row',height:45,borderWidth:0.5,borderColor:'#DCDCDC',borderRadius:7,backgroundColor:'#FFFFFF',elevation:1,alignItems:'center',alignSelf:'center',margin:10}} >
                         <Text style={[styles.sTextItem,{color:'#6CE200'}]}>{item.name}</Text>
                         <TouchableOpacity
+                        style={{width:20,height:20}}
                          onPress={()=>{
                             setItem(item.selected,item.id)
                         }}>
                             <Image
                                 source={checked}
-                                style={{height:14,width:14}}
+                                style={{height:16,width:16}}
                             />
                         </TouchableOpacity>
                     </View>
@@ -40,13 +41,14 @@ function fieldselect ({props,item,setItem}){
                     <View style={{width:335,flexDirection:'row',height:45,borderWidth:0.5,borderColor:'#DCDCDC',borderRadius:7,backgroundColor:'#FFFFFF',elevation:1,alignItems:'center',alignSelf:'center',margin:10}} >
                         <Text style={styles.sTextItem}>{item.name}</Text>
                         <TouchableOpacity
+                        style={{width:20,height:20}}
                             onPress={()=>{
                                 setItem(item.selected,item.id)
                             }}
                         >
                             <Image
                                 source={check}
-                                style={{height:14,width:14}}
+                                style={{height:16,width:16}}
                             />
                         </TouchableOpacity>
                     </View>

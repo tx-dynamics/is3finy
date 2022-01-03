@@ -251,6 +251,7 @@ function Rqtext (props){
                    center = {logo}
                    right={lang}
                    left={back} 
+                   leftstyle={{width:16,height:14,marginLeft:8}}
                />
                 <Text style={[styles.heading,{marginTop:responsiveHeight(2)}]} >Record Video At Least 1 Minute</Text>
        

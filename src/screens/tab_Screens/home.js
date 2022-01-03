@@ -36,7 +36,7 @@ function home (props){
                 <RQButton 
                     navigation={()=>props.navigation.navigate('ScreenStack',{screen:'RQPhoto'})}
                     img = {pic}
-                    txt = {'Photo'}
+                    txt = {'Picture'}
                     style={{width:17,height:16,alignSelf:'center',marginLeft:10}} />
             </View>
             <View style={[styles.container,{marginTop:responsiveHeight(3)}]} >

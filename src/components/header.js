@@ -10,7 +10,7 @@ import {
 import {Header, FAB} from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function header({ backgroundColor,leftnavigation,rightnavigation,center,right,left }) {
+export default function header({ backgroundColor,leftstyle,leftnavigation,rightnavigation,center,right,left }) {
     // console.log(center);
     return(
         <Header
@@ -28,7 +28,7 @@ export default function header({ backgroundColor,leftnavigation,rightnavigation,
                 style={{justifyContent:'center',marginTop:responsiveHeight(3)}} >
                     <Image
                         source={left}
-                        style={{width:22,height:22,marginLeft:8}}
+                        style={leftstyle?leftstyle:{width:22,height:22,marginLeft:8}}
                     />
                 </TouchableOpacity>
             }
@@ -40,7 +40,7 @@ export default function header({ backgroundColor,leftnavigation,rightnavigation,
             }
             rightComponent={
                 <TouchableOpacity 
-                onPress={rightnavigation}
+                onPress={()=>alert('coming soon')}
                  style={{justifyContent:'center',marginTop:responsiveHeight(3)}} >
                     <Image
                         source={right}
