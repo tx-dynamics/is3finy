@@ -23,13 +23,14 @@ import styles from './styles';
 import OTPInputView from '@twotalltotems/react-native-otp-input'
 function signup (props){
     const [ismodal, setismodal] = useState(false)
+    const [resend, setresend] = useState(false)
 
 
     return(
     <KeyboardAwareScrollView style={styles.mainContainer} >
      <ImageBackground source={patient} style={styles.bg} >
          <View style={styles.bg_color} >
-            <Header leftstyle={{width:16,height:14,marginLeft:8}} backgroundColor='transparent' leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
+            <Header leftstyle={{width:16,height:14,marginleft:8}} backgroundColor='transparent' leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
             <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'600',fontFamily:'Lato'}]} >Enter Code</Text>
             {/* <OTPInputView pinCount={4} /> */}
             <OTPInputView
@@ -45,8 +46,14 @@ function signup (props){
             })}
         />
             <View style={{marginTop:responsiveHeight(10)}} >
-            <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginLeft:35,marginBottom:responsiveHeight(1)}]} >Resend 0:23</Text>
-                <GradButton style={styles.signup}  navigation={()=>setismodal(true)} txt = {'Continue'}/>
+            {resend?
+            <>
+                <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginLeft:35,marginBottom:responsiveHeight(1)}]} >Resend 0:23</Text>
+                <GradButton style={styles.signup}  navigation={()=>setismodal(true)} txt = {'Resend'}/>
+            </>
+            :
+                <GradButton style={styles.signup}  navigation={()=>setresend(true)} txt = {'Continue'}/>
+            }
             </View>
             <View style={{height:responsiveScreenHeight(40)}}  />
         </View>

@@ -34,35 +34,35 @@ function inquires ({props,item,navigation}){
                                 return(
                                     <Image
                                         source={dat.img}
-                                        style={{width:15,height:17,margin:5}}
+                                        style={{width:15,height:17,margin:5,tintColor:'black'}}
                                     />
                                 )
                                }else if(dat.type === 'video'){
                                 return(
                                     <Image
                                         source={dat.img}
-                                        style={{width:17,height:12,margin:5}}
+                                        style={{width:17,height:12,margin:5,tintColor:'black'}}
                                     />
                                 )
                                }else if(dat.type === 'voice'){
                                 return(
                                     <Image
                                         source={dat.img}
-                                        style={{width:12.67,height:17.83,margin:5}}
+                                        style={{width:12.67,height:17.83,margin:5,tintColor:'black'}}
                                     />
                                 )
                                }else{ 
                                return(
                                     <Image
                                         source={dat.img}
-                                        style={{width:17,height:16,margin:5}}
+                                        style={{width:17,height:16,margin:5,tintColor:'black'}}
                                     />
                                 )
                                 }
                             })}
                         </View>
                         <TouchableOpacity onPress={navigation} style={{width:111,height:36,borderRadius:10,backgroundColor:'#6CE200',alignItems:'center',justifyContent:'center'}} >
-                            <Text>View Status</Text>
+                            <Text style={{color:'white'}} >View Status</Text>
                         </TouchableOpacity>
                     </View>
                     </View>

@@ -16,6 +16,8 @@ import Otp from '../screens/tab_Screens/auth/otp'
 import PaymentInstruct from '../screens/tab_Screens/payment_instruct'
 import PaymentSelect from '../screens/tab_Screens/payment_select'
 import Payment from '../screens/tab_Screens/payment'
+import Status from '../screens/tab_Screens/view_status'
+import Setting from '../screens/tab_Screens/setting'
 
 const Stack = createStackNavigator();
 
@@ -93,6 +95,16 @@ const AudiofileStack = () => {
        <Stack.Screen
         name="PaymentSelect"
         component={PaymentSelect}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Status"
+        component={Status}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Setting"
+        component={Setting}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

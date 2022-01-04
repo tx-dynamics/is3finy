@@ -161,7 +161,7 @@ function list (props){
 
     return(
      <View style={{flex:1}} >
-         <Header leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header  leftstyle={{width:16,height:14,margin:8}} leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
          <View style={styles.sContainer}>
 
               <View style={styles.inputConatiner} >

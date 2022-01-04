@@ -194,6 +194,12 @@ const styles = StyleSheet.create({
       elevation: 10,
       height:269
       },
-      modaltxt:{fontSize:13,fontWeight:'400',fontFamily:'Poppins',textAlign:'center',color:'black'}
+      modaltxt:{fontSize:13,fontWeight:'400',fontFamily:'Poppins',textAlign:'center',color:'black'},
+      profcont:{marginTop:responsiveHeight(4),alignItems:'center'},
+      dp:{
+        width:91,
+        height:91,
+        alignSelf:'center'
+      }
 });
 export default styles;

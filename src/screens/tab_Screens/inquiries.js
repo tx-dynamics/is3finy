@@ -90,7 +90,7 @@ function inquires (props){
             style={{ height:'50%',width:'100%' ,flex:1,alignSelf:'center',marginTop:responsiveHeight(3)}}
             data={data}
             renderItem={({ item,index }) => 
-               <Inquiry item = {item} navigation={()=>alert('called')} />
+               <Inquiry  item = {item} navigation={()=>props.navigation.navigate('ScreenStack',{screen:'Status'})}  />
             }
             keyExtractor={item => item.id}
         />

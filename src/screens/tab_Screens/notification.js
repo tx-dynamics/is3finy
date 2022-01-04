@@ -18,7 +18,7 @@ import {logo,lang,notific,
     back,
     } from '../../assets';
 import styles from './styles';
-import Inquiry from '../../components/inquiry'
+import Notify from '../../components/notification'
 const data = [
     {
         date:'Mon,11,2022',
@@ -95,24 +95,7 @@ function notification (props){
             style={{ height:'50%',width:'100%' ,flex:1,alignSelf:'center',marginTop:responsiveHeight(3)}}
             data={data}
             renderItem={({ item,index }) => 
-               <>
-               {item.date?
-                    <Text style={{fontFamily:'Poppins',fontWeight:'500',fontSize:14,color:'rgba(114, 114, 114, 1)'}} >{item.date}</Text> 
-               :
-                    <View style={{width:'90%',height:61,flexDirection:'row',alignSelf:'center'}} >
-                        <View style={{flex:0.2}} >
-                            <Image
-                                source={notific}
-                                style={{width:21,height:21}}
-                            />
-                        </View>
-                        <View>
-                            <Text style={{fontFamily:'Poppins',fontWeight:'500',fontSize:14,color:'black'}} >{item.status}</Text>
-                            <Text style={{fontFamily:'Roboto',fontWeight:'300',fontSize:10,color:'rgba(0, 0, 0, 0.5)'}} >{item.messgae}</Text>
-                        </View>
-                    </View>
-               }
-               </>
+                <Notify item = {item} />
             }
             keyExtractor={item => item.id}
         />

@@ -77,7 +77,7 @@ function payment (props){
             </View>
 
         </ImageBackground>
-        <Text style={[styles.heading,{fontSize:12,fontWeight:'400',color:'#4B4B4B80',alignSelf:'center',marginTop:responsiveHeight(2)}]} >By adding debit / creadit card you agree to the{'\n'}erms & Condition</Text>
+        <Text style={[styles.heading,{fontSize:12,fontWeight:'400',color:'#4B4B4B80',alignSelf:'center',marginTop:responsiveHeight(2)}]} >By adding debit / creadit card you agree to the{'\n'}Terms & Condition</Text>
         <View style={[styles.watsapp,{marginTop:responsiveHeight(2),justifyContent:'flex-start',width:'90%'}]} >
                 <TextInput
                     value={name}

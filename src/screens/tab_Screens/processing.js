@@ -23,7 +23,7 @@ import styles from './styles';
 function processing (props){
     return(
      <View>
-         <Header leftstyle={{width:16,height:14,marginLeft:8}} leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header leftstyle={{width:16,height:14,margin:8}} leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
           <View style={styles.processingCont} >
               <Text style={styles.selectiontxt} >Your inquiry is now being processed to be{'\n'}answered soon , Your average wait time{'\n'}for a reply</Text>
               <TouchableOpacity>
