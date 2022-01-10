@@ -48,13 +48,17 @@ class Splash extends Component {
         </Image>
 
         {this.state.loader &&
-          <ActivityIndicator
-            style={{alignSelf:'center',marginTop:responsiveScreenHeight(8)}}
-            size={'large'}
-            color={'white'}
+          <Image
+            source={loader}
+            style={{alignSelf:'center',marginTop:responsiveScreenHeight(2),width:102,height:102}}
           />
+          // {/* // <ActivityIndicator
+          // //   style={{alignSelf:'center',marginTop:responsiveScreenHeight(8)}}
+          // //   size={'large'}
+          // //   color={'white'}
+          // // /> */}
           
-        }
+        } 
       </View>
     );
   }

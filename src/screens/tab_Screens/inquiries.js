@@ -13,7 +13,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {Header, FAB} from 'react-native-elements';
 import GradButton from '../../components/gradient_button';
 import RQButton from '../../components/request_button';
-import {logo,lang,bullet,pic,text,video,voice,
+import {logo,editblack,galblack,pic,text,video,voice,
     info,gpay,
     back,
     } from '../../assets';
@@ -25,27 +25,15 @@ const data = [
         inquiry_method:[
             {
                 type:'txt',
-                img:text
+                img:editblack
             },
             {
                 type:'pic',
-                img:pic
+                img:galblack
             }
         ]
     },
-    {
-        date:'Mon,11,2022',
-        inquiry_method:[
-            {
-                type:'video',
-                img:video
-            },
-            {
-                type:'voice',
-                img:voice
-            }
-        ]
-    }
+    
 ]
 
 function inquires (props){

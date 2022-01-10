@@ -60,6 +60,7 @@ function profile (props){
            <PRButton
                 txt = {'Edit Profile'}
                 img = {edit}
+                navigation={()=>props.navigation.navigate('ScreenStack',{screen:'EditProfile'})}
                 imgstyle={{width:22,height:18,marginLeft:12}}
            />
 
@@ -79,6 +80,7 @@ function profile (props){
             <PRButton
                 txt = {'Log out'}
                 img = {logout}
+                navigation={()=>props.navigation.replace('ScreenStack',{screen:'Signup'})}
                 imgstyle={{width:20,height:20,marginLeft:12}}
                 txtstyle={[styles.heading,{fontWeight:'500',fontSize:14,marginTop:0,marginLeft:responsiveWidth(3),color:'white'}]}
                 btnstyle={{marginTop:responsiveHeight(22),alignSelf:'center',alignItems:'center',flexDirection:'row',width:'87%',height:48,borderRadius:10,backgroundColor:'#FF8F8F'}}

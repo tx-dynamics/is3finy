@@ -21,37 +21,37 @@ import styles from './styles';
 import Notify from '../../components/notification'
 const data = [
     {
-        date:'Mon,11,2022',
+        date:'12 nov 2022',
     },
     {
-        status:'Response Receieved',
+        status:'Response Received',
         messgae:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi aliquet commodo egestas tempus, urna sed in fames id. Tortor eros porttitor at nisl, bibendum.'        
     },
     {
-        status:'Response Receieved',
+        status:'Response Received',
         messgae:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi aliquet commodo egestas tempus, urna sed in fames id. Tortor eros porttitor at nisl, bibendum.'        
     },
     {
-        status:'Response Receieved',
+        status:'Response Received',
         messgae:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi aliquet commodo egestas tempus, urna sed in fames id. Tortor eros porttitor at nisl, bibendum.'        
     },
     {
         date:'Yesterday',
     },
     {
-        status:'Response Receieved',
+        status:'Response Received',
         messgae:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi aliquet commodo egestas tempus, urna sed in fames id. Tortor eros porttitor at nisl, bibendum.'        
     },
     {
-        status:'Response Receieved',
+        status:'Response Received',
         messgae:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi aliquet commodo egestas tempus, urna sed in fames id. Tortor eros porttitor at nisl, bibendum.'        
     },
     {
-        status:'Response Receieved',
+        status:'Response Received',
         messgae:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisi aliquet commodo egestas tempus, urna sed in fames id. Tortor eros porttitor at nisl, bibendum.'        
     },
     
-]
+]   
 
 function notification (props){
 

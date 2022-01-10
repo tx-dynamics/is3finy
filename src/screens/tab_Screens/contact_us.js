@@ -25,7 +25,10 @@ function category (props){
 
     return(
      <View>
-         <Header leftstyle={{width:16,height:14,marginLeft:8}} leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
+         <Header             
+            leftstyle={{color:'white'}}
+            leftnavigation = {()=>props.navigation.goBack()}
+            rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang}/>
          <Text style={[styles.heading,{marginTop:responsiveHeight(3)}]} >Contact us</Text>
          <Text style={[styles.selectiontxt,{margin:8}]} >Were are happy to recieve your{'\n'}Feedback and Suggestions</Text>
          <View style={styles.inputConatiner} >

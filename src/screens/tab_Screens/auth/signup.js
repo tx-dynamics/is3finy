@@ -30,7 +30,6 @@ function signup (props){
     return(
     <KeyboardAwareScrollView style={styles.mainContainer} >
      <ImageBackground source={patient} style={styles.bg} >
-         <View style={styles.bg_color} >
             <Header backgroundColor='transparent' leftnavigation = {()=>props.navigation.navigate('ScreenStack',{screen:'Contact'})} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={call}  />
             <View style={styles.container} >
                 <View style={styles.inputConatiner} >
@@ -76,7 +75,6 @@ function signup (props){
                 <GradButton style={styles.signup}  navigation={()=>props.navigation.navigate('Number')} txt = {'Signup'}/>
             </View>
             <View style={{height:responsiveScreenHeight(25)}}  />
-        </View>
      </ImageBackground>   
      </KeyboardAwareScrollView>
      

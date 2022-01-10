@@ -7,6 +7,7 @@ import {
     responsiveWidth,
   } from 'react-native-responsive-dimensions';
   import LinearGradient from 'react-native-linear-gradient';
+  import {Ionicons} from 'react-native-vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {useIsFocused} from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -29,8 +30,8 @@ function Rqtext (props){
             rightnavigation = {props.navigation}
             center = {logo}
             right={lang}
-            left={back}
-            leftstyle={{width:16,height:14,marginLeft:8}}
+            // left={<Ionicons name = 'arrow-back' />}
+            leftstyle={{color:'white'}}
              />
          <Text style={[styles.heading,{marginTop:responsiveHeight(2)}]} >Write Text Here...</Text>
          <View style={styles.inputConatiner} >

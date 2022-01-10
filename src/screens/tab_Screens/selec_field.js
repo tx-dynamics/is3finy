@@ -25,7 +25,10 @@ function category (props){
 
     return(
      <View>
-         <Header  leftstyle={{width:16,height:14,marginLeft:8}}   leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header              
+            leftstyle={{color:'white'}}
+            leftnavigation = {()=>props.navigation.goBack()}
+            rightnavigation = {props.navigation} center = {logo} right={lang}  />
           <KeyboardAwareScrollView style={{marginBottom:responsiveHeight(15)}} >
           <View style={[styles.cat_con,{marginTop:responsiveHeight(5)}]} >
              <TouchableOpacity onPress={()=>props.navigation.navigate('FieldList')} style={styles.cat} >

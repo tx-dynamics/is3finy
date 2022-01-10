@@ -305,8 +305,8 @@ function Rqtext (props){
             rightnavigation = {props.navigation}
             center = {logo}
             right={lang}
-            left={back} 
-            leftstyle={{width:16,height:14,marginLeft:8}}
+            leftstyle={{color:'white'}}
+
         />
          <Text style={[styles.heading,{marginTop:responsiveHeight(2)}]} >Add At Least 2 Pictures</Text>
          <View  >

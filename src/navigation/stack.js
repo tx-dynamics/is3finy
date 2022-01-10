@@ -18,6 +18,8 @@ import PaymentSelect from '../screens/tab_Screens/payment_select'
 import Payment from '../screens/tab_Screens/payment'
 import Status from '../screens/tab_Screens/view_status'
 import Setting from '../screens/tab_Screens/setting'
+import EditProfile from '../screens/tab_Screens/editProfile'
+import FAQs from '../screens/tab_Screens/faqs'
 
 const Stack = createStackNavigator();
 
@@ -105,6 +107,16 @@ const AudiofileStack = () => {
       <Stack.Screen
         name="Setting"
         component={Setting}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="FAQs"
+        component={FAQs}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

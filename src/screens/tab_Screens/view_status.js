@@ -120,8 +120,8 @@ function status (props){
                    rightnavigation = {props.navigation}
                    center = {logo}
                    right={lang}
-                   left={back} 
-                   leftstyle={{width:16,height:14,marginLeft:8}}
+                   leftstyle={{color:'white'}}
+
                />
                 <Text style={[styles.heading,{marginTop:responsiveHeight(2),fontWeight:'600',fontSize:16}]} >Inquiry Reply</Text>
        
@@ -169,32 +169,36 @@ function status (props){
                         much satisfied are you from our{'\n'}
                         service?</Text>
                         
-                        <View style={{alignItems:'center',height:150}} >
+                        <View style={{alignSelf:'center',justifyContent:'center',alignItems:'center',height:150}} >
                             <FlatList
-                                style={{ width:'100%',alignSelf:'center',marginTop:responsiveHeight(3)}}
+                                style={{alignContent:'center', alignSelf:'center',marginTop:responsiveHeight(3)}}
                                 // horizontal={true}
-                                numColumns={5}
+                                numColumns={6}
                                 data={rating}
                                 renderItem={({ item,index }) => 
-                                <>
+                                <View style={{alignItems:'center'}}>
                                     {item.selected?
-                                    <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,backgroundColor:'#6CE200',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
+                                    <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,marginLeft:item.value === '7'?responsiveWidth(13.5):null,backgroundColor:'#6CE200',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
                                         <Text style={[styles.modaltxt,{fontSize:18,fontWeight:'500',color:'white'}]} >{item.value}</Text>
                                     </TouchableOpacity>
                                     :
                                     
-                                    <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,backgroundColor:'rgba(108, 226, 0, 0.1)',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
+                                    <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,marginLeft:item.value === '7'?responsiveWidth(13.5):null,backgroundColor:'rgba(108, 226, 0, 0.1)',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
                                         <Text style={[styles.modaltxt,{fontSize:18,fontWeight:'500',color:'rgba(0, 0, 0, 0.5)'}]} >{item.value}</Text>
                                     </TouchableOpacity>
                                     }
-                                </>
+                                </View>
                                 }
                             />
                         </View>
                         {isselected?
                         <TouchableOpacity onPress={()=>{
                             setismodal(false)
-                            setsuccess(true)                                
+                            setsuccess(true)
+                            setTimeout(() => {
+                                setsuccess(false)
+                                props.navigation.goBack()
+                            }, 2000);                                
                             }}
                             style={{alignSelf:'center',alignItems:'center'}}>
                                 <LinearGradient

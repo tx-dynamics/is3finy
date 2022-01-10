@@ -29,8 +29,11 @@ function signup (props){
     return(
     <KeyboardAwareScrollView style={styles.mainContainer} >
      <ImageBackground source={patient} style={styles.bg} >
-         <View style={styles.bg_color} >
-            <Header leftstyle={{width:16,height:14,marginleft:8}} backgroundColor='transparent' leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
+            <Header             
+                leftstyle={{color:'white'}}
+                backgroundColor='transparent'
+                leftnavigation = {()=>props.navigation.goBack()}
+                rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang}  />
             <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'600',fontFamily:'Lato'}]} >Enter Code</Text>
             {/* <OTPInputView pinCount={4} /> */}
             <OTPInputView
@@ -45,18 +48,20 @@ function signup (props){
                 console.log(`Code is ${code}, you are good to go!`)
             })}
         />
-            <View style={{marginTop:responsiveHeight(10)}} >
+            <View style={{marginTop:responsiveHeight(10),width:335,alignSelf:'center'}} >
             {resend?
-            <>
-                <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginLeft:35,marginBottom:responsiveHeight(1)}]} >Resend 0:23</Text>
-                <GradButton style={styles.signup}  navigation={()=>setismodal(true)} txt = {'Resend'}/>
-            </>
-            :
-                <GradButton style={styles.signup}  navigation={()=>setresend(true)} txt = {'Continue'}/>
+                <>
+                    <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginBottom:responsiveHeight(1)}]} >Resend 0:00</Text>
+                    <GradButton style={styles.signup}  navigation={()=>setismodal(true)} txt = {'Resend'}/>
+                </>
+                :
+                <>
+                    <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontSize:12,textAlign:'left',fontFamily:'Roboto',marginBottom:responsiveHeight(1)}]} >Resend 0:23</Text>
+                    <GradButton style={styles.signup}  navigation={()=>setresend(true)} txt = {'Continue'}/>
+                </>
             }
             </View>
             <View style={{height:responsiveScreenHeight(40)}}  />
-        </View>
      </ImageBackground>   
      <Modal
         animationType="slide"
@@ -72,7 +77,7 @@ function signup (props){
                 backgroundColor: 'rgba(64, 77, 97, 0.5)',
             }}>
         <View
-            style={styles.modalcontainer}>
+            style={[styles.modalcontainer,{marginTop:'24%'}]}>
             <View
             style={{
                 marginTop:20,

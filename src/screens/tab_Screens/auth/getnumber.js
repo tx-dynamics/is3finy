@@ -48,8 +48,11 @@ function signup (props){
     return(
     <KeyboardAwareScrollView style={styles.mainContainer} >
      <ImageBackground source={patient} style={styles.bg} >
-         <View style={styles.bg_color} >
-            <Header leftstyle={{width:16,height:14,marginLeft:8}} backgroundColor='transparent' leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={back}  />
+            <Header             
+              leftstyle={{color:'white'}}
+              backgroundColor='transparent' 
+              leftnavigation = {()=>props.navigation.goBack()}
+              rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang}  />
             <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'600',fontFamily:'Lato'}]} >Enter Phone Number</Text>
             <View style={styles.contary} >
                 {/* <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontFamily:'Lato',marginTop:0}]} >US</Text>
@@ -60,14 +63,14 @@ function signup (props){
                     onValueChange={value => {
                     setpicker(value)
                     }}
-                    style={{inputAndroid:{color:'#FFFFFF',width:70,marginLeft:responsiveWidth(5),fontWeight:'400',fontFamily:'Lato',marginTop:0},iconContainer: {
+                    style={{inputAndroid:{color:'#FFFFFF',width:100,textAlign:'center',fontWeight:'400',fontFamily:'Lato',marginTop:0},iconContainer: {
                         top: 18,
-                        // left:responsiveWidth(13),
+                        // left:responsiveWidth(1),
                       },}}
                     value={picker}
                     useNativeAndroidPickerStyle={false}
                     Icon={() => {
-                        return <Image source={pickercon} style={{width:8.33,height:4.7,marginLeft:responsiveWidth(3)}} />;
+                        return <Image source={pickercon} style={{width:8.33,height:4.7}} />;
                       }}
                     // ref={el => {
                     // this.inputRefs.favSport1 = el;
@@ -91,7 +94,6 @@ function signup (props){
                 <GradButton style={styles.signup}  navigation={()=>props.navigation.navigate('Otp')} txt = {'Continue'}/>
             </View>
             <View style={{height:responsiveScreenHeight(40)}}  />
-        </View>
      </ImageBackground>   
      </KeyboardAwareScrollView>
      

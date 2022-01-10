@@ -194,7 +194,11 @@ function Rqvoice (props){
 
     return(
      <View>
-         <Header leftnavigation = {()=>props.navigation.goBack()} leftstyle={{width:16,height:14,marginLeft:8}} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header 
+          leftnavigation = {()=>props.navigation.goBack()} 
+          leftstyle={{color:'white'}}
+          rightnavigation = {props.navigation}
+          center = {logo} right={lang}  />
          <Text style={[styles.heading,{marginTop:responsiveHeight(2)}]} >Record Voice At Least 1 Minute</Text>
             <View style={styles.record} >
               {isplay?

@@ -20,7 +20,7 @@ function intro (props){
 
     return(
      <View>
-         <Header leftnavigation = {props.navigation} rightnavigation = {props.navigation} center = {logo} right={lang} left={null}  />
+         <Header   center = {logo} right={lang} left={null} leftstyle={{color:'transparent'}}  />
          <View style={styles.container} >
             <View style={{flexDirection:'row'}} >
                 <Image
@@ -85,7 +85,9 @@ function intro (props){
                             <Text style={[styles.modaltxt,{marginTop:10}]} >The cost of a general inquiry is L.E, {'\n'} 10/inquiry</Text>
                             <Text style={[styles.modaltxt,{marginTop:10}]} >The cost of a private inguiry using an I.D,{'\n'} si L.E, 50/inquiry</Text>
                             <View style={{marginTop:responsiveHeight(4)}} />                            
-                            <GradButton navigation={()=>{
+                            <GradButton 
+                            style={{width:91,height:37,borderRadius:10,alignSelf:'center',justifyContent:'center'}}
+                            navigation={()=>{
                                 props.navigation.replace('Main')
                                 setismodal(false)
                                 }} txt = {'Close'}/>

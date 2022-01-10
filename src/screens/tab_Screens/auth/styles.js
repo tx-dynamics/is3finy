@@ -15,9 +15,8 @@ const styles = StyleSheet.create({
     alignItems:'center',
     marginTop:responsiveHeight(10),
   },
-  signup:{width:335,height:51,borderRadius:10,alignSelf:'center',justifyContent:'center',alignItems:'center'},
-  contary:
-  {
+  signup:{width:335,height:56,borderRadius:10,alignSelf:'center',justifyContent:'center',alignItems:'center'},
+  contary:{
     flexDirection:'row',
     width:125,height:44,
     borderRadius:8,

@@ -201,7 +201,8 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(':react-native-audio-recorder-player')
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
+    implementation 'com.facebook.fresco:fresco:2.0.0'
+    implementation 'com.facebook.fresco:animated-gif:2.6.0'   //use
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }

@@ -22,7 +22,10 @@ import styles from './styles';
 function processing (props){
     return(
      <View>
-         <Header leftstyle={{width:16,height:14,marginLeft:8}} leftnavigation = {()=>props.navigation.goBack()} rightnavigation = {props.navigation} center = {logo} right={lang} left={back}  />
+         <Header             
+            leftstyle={{color:'white'}}
+            leftnavigation = {()=>props.navigation.goBack()}
+            rightnavigation = {props.navigation} center = {logo} right={lang}  />
           <View style={[styles.processingCont,{alignItems:'flex-start',height:246}]} >
           <View style={[styles.container,{marginTop:responsiveHeight(3)}]} >
                 <View style={{flexDirection:'row'}} >
@@ -65,7 +68,7 @@ function processing (props){
        <View style={{marginTop:responsiveHeight(30)}} >
            <GradButton style={{width:335,height:50,borderRadius:8,alignSelf:'center',justifyContent:'center'}} navigation={()=>props.navigation.navigate('PaymentSelect')} txt = {'Pay now'}/>
        </View>
-       <TouchableOpacity style={[styles.watsapp,{marginTop:responsiveHeight(3),width:335,justifyContent:'flex-start'}]} >
+       <TouchableOpacity onPress={()=>props.navigation.navigate('Status')} style={[styles.watsapp,{marginTop:responsiveHeight(3),width:335,justifyContent:'flex-start'}]} >
            
             <Text style={[styles.selectiontxt,{width:'80%',textAlign:'left'}]} >Your inquiry answer is ready to see</Text>
             <Image

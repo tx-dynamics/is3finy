@@ -54,7 +54,7 @@ function setting (props){
             <SEButton
                 txt = {'Notification'}
                 img = {notific}
-                // navigation={()=>props.navigation.navigate('ScreenStack',{screen:'Setting'})}
+                navigation={()=>props.navigation.navigate('BottomTab',{screen:'Notification'})}
                 imgstyle={{width:16,height:16,marginLeft:12,tintColor:'black'}}
             />
             <SEButton
@@ -65,6 +65,7 @@ function setting (props){
             <SEButton
                 txt = {'FAQs'}
                 img = {help}
+                navigation={()=>props.navigation.navigate('FAQs')}
                 imgstyle={{width:14,height:14,marginLeft:12,tintColor:'black'}}
             />
              <SEButton
