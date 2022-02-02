@@ -15,22 +15,25 @@ import GradButton from '../../../components/gradient_button';
 import {logo,lang,bullet,call,text,
     pic,
     patient,
-    voice,
+    support,
     add} from '../../../assets';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import LanguageModal from '../../../components/lang_modal';
 
 function signup (props){
     const [name, setname] = useState('')
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [conpass, setconpass] = useState('')
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
 
 
     return(
     <KeyboardAwareScrollView style={styles.mainContainer} >
      <ImageBackground source={patient} style={styles.bg} >
-            <Header backgroundColor='transparent' leftnavigation = {()=>props.navigation.navigate('ScreenStack',{screen:'Contact'})} rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang} left={call}  />
+            <Header backgroundColor='transparent' leftnavigation = {()=>props.navigation.navigate('ScreenStack',{screen:'Contact'})}  rightnavigation={()=>setlanmodal(true)} center = {logo} right={lang} left={support}  />
             <View style={styles.container} >
                 <View style={styles.inputConatiner} >
                     <TextInput
@@ -76,6 +79,9 @@ function signup (props){
             </View>
             <View style={{height:responsiveScreenHeight(25)}}  />
      </ImageBackground>   
+     {lanmodal?
+        <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+    :null}
      </KeyboardAwareScrollView>
      
     )

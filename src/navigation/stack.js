@@ -20,6 +20,8 @@ import Status from '../screens/tab_Screens/view_status'
 import Setting from '../screens/tab_Screens/setting'
 import EditProfile from '../screens/tab_Screens/editProfile'
 import FAQs from '../screens/tab_Screens/faqs'
+import BankPay from '../screens/tab_Screens/bankpay'
+import RequestInq from '../screens/tab_Screens/request_inquiry'
 
 const Stack = createStackNavigator();
 
@@ -117,6 +119,16 @@ const AudiofileStack = () => {
        <Stack.Screen
         name="FAQs"
         component={FAQs}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="BankPay"
+        component={BankPay}
+        options={{headerShown: false}}
+      />
+       <Stack.Screen
+        name="RequestInq"
+        component={RequestInq}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

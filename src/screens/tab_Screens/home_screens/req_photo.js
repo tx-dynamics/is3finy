@@ -95,75 +95,7 @@ function Rqtext (props){
     setcameraopen(false)
     }
 
-    // async function _pickImage  ()  {
-
-
-    //     let pickerResult = await ImagePicker.launchImageLibraryAsync({
-    //       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-    //       base64: true,
-    //       allowsEditing: true,
-    //     })
-    
-    //     if (!pickerResult.cancelled) {
-    
-    //       console.log('***********************');
-    
-    //       let imageUri = pickerResult ? `data:image/jpg;base64,${pickerResult.base64}` : null
-    //       imageUri && { uri: imageUri }
-    //         var res = images.map((item,index)=>{
-    //             if(item === add_pic){
-    //                 images.splice(item[index],1)
-    //                 // console.log("true");
-    //                 // return image.push(imageUri)
-    //                 return [...images,imageUri]   
-    //             }
-    //         })
-    //         setTimeout(() => {
-    //             // console.log(res);
-    //             setimages(res[0])                
-    //         }, 2000);
-        
-    //     }
-    //   }
-    
-    // async function _takePhoto  ()  {
-    //     const {
-    //       status: cameraPerm
-    //     } = await Permissions.askAsync(Permissions.CAMERA)
-    //     const {
-    //       status: cameraRollPerm
-    //     } = await Permissions.askAsync(Permissions.CAMERA_ROLL)
-    //     // only if user allows permission to camera AND camera roll
-    //     if (cameraPerm === 'granted' && cameraRollPerm === 'granted') {
-    //       let pickerResult = await ImagePicker.launchCameraAsync({
-    //         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-    //         quality: 0.5,
-    //         base64: true,
-    //         allowsEditing: true,
-    //         // ratio:
-    //         aspect: [1, 1],
-    //       })
-    //       if (!pickerResult.cancelled) {
-    //         let imageUri = pickerResult ? `data:image/jpg;base64,${pickerResult.base64}` : null
-    //             // let image = []
-    //             let imauri = "WERWRE%$%#$$$$$$$$$$$$%#$%#$5"
-    //             var res = images.map((item,index)=>{
-    //                 if(item === add_pic){
-    //                     images.splice(item[index],1)
-    //                     // console.log("true");
-    //                     // return image.push(imageUri)
-    //                     return [...images,imageUri]   
-    //                 }
-    //             })
-    //             setTimeout(() => {
-    //                 // console.log(res);
-    //                 setimages(res[0])                
-    //             }, 2000);
-               
-    //       }
-    //     }
-    //   }
-
+   
     async function onImages() {
         try {
         const res = await DocumentPicker.pickMultiple({

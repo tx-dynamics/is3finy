@@ -19,16 +19,19 @@ import {logo,lang,bullet,call,text,
     back,
     add} from '../../assets';
 import styles from './styles';
+import LanguageModal from '../../components/lang_modal';
 
 function category (props){
     const [input, setinput] = useState('')
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
 
     return(
      <View>
          <Header              
             leftstyle={{color:'white'}}
             leftnavigation = {()=>props.navigation.goBack()}
-            rightnavigation = {props.navigation} center = {logo} right={lang}  />
+            rightnavigation={()=>setlanmodal(true)} center = {logo} right={lang}  />
           <KeyboardAwareScrollView style={{marginBottom:responsiveHeight(15)}} >
           <View style={[styles.cat_con,{marginTop:responsiveHeight(5)}]} >
              <TouchableOpacity onPress={()=>props.navigation.navigate('FieldList')} style={styles.cat} >
@@ -60,6 +63,9 @@ function category (props){
            <GradButton navigation={()=>props.navigation.navigate('Selection')} txt = {'Enter'}/>
        </View>
        </KeyboardAwareScrollView>
+       {lanmodal?
+            <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+        :null}
      </View>   
      
     )

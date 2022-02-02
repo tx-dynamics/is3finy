@@ -23,6 +23,8 @@ function processing (props){
 
     const [checkcred,setcheckcred] = useState(false)
     const [checkgpay,setcheckgpay] = useState(false)
+    const [checkrqpay,setcheckrqpay] = useState(false)
+    const [checkcopay,setcheckcopay] = useState(false)
 
     return(
      <View>
@@ -41,7 +43,7 @@ function processing (props){
                 style={{}} >
                     <Image
                         source={back}
-                        style={{width:16,height:14,marginLeft:8,tintColor:'black'}}
+                        style={{width:16,height:15,marginLeft:8,tintColor:'black'}}
                     />
                 </TouchableOpacity>
             }
@@ -51,7 +53,7 @@ function processing (props){
             
         /> 
         <Text style={[styles.heading,{fontFamily:'Lato',fontSize:13,fontWeight:'500',alignSelf:'flex-start',marginLeft:responsiveWidth(4),marginTop:responsiveHeight(5)}]} >SELECT PAYMENT METHOD</Text>
-        <View style={[styles.processingCont,{flexDirection:'row',height:104,alignItems:'center',marginTop:responsiveHeight(10)}]} >
+        <View style={[styles.processingCont,{flexDirection:'row',height:83,alignItems:'center',marginTop:responsiveHeight(7)}]} >
             {checkcred?
                 <TouchableOpacity onPress={()=>setcheckcred(false)} style={styles.bullent_cont} >
                     <View style={styles.bullet_inside} />
@@ -60,15 +62,14 @@ function processing (props){
                 <TouchableOpacity onPress={()=>{
                     setcheckcred(true)
                     setcheckgpay(false)
+                    setcheckrqpay(false)
+                    setcheckcopay(false)
                 }} style={styles.bullent_cont} />
             }
             <Text style={styles.paytxt} >Credit/Debit Card</Text>
-            <Image
-                source={credit}
-                style={{width:45,height:45}}
-            />
+            
         </View>
-        <View style={[styles.processingCont,{flexDirection:'row',height:104,alignItems:'center',marginTop:responsiveHeight(2)}]} >
+        <View style={[styles.processingCont,{flexDirection:'row',height:83,alignItems:'center',marginTop:responsiveHeight(2)}]} >
             {checkgpay?
                 <TouchableOpacity onPress={()=>setcheckgpay(false)} style={styles.bullent_cont} >
                     <View style={styles.bullet_inside} />
@@ -77,17 +78,54 @@ function processing (props){
                 <TouchableOpacity onPress={()=>{
                     setcheckgpay(true)
                     setcheckcred(false)
+                    setcheckrqpay(false)
+                    setcheckcopay(false)
                 }} style={styles.bullent_cont} />
-            }<Text style={styles.paytxt} >Google Payment</Text>
-            <Image
-                source={gpay}
-                style={{width:55,height:23}}
-            />
+            }<Text style={styles.paytxt} >Pay at C.I.B Bank ATM machines{'\n'}(payless services)</Text>
+            
+        </View>
+
+        <View style={[styles.processingCont,{flexDirection:'row',height:83,alignItems:'center',marginTop:responsiveHeight(2)}]} >
+            {checkrqpay?
+                <TouchableOpacity onPress={()=>setcheckrqpay(false)} style={styles.bullent_cont} >
+                    <View style={styles.bullet_inside} />
+                </TouchableOpacity>
+            :
+                <TouchableOpacity onPress={()=>{
+                    setcheckgpay(false)
+                    setcheckcred(false)
+                    setcheckrqpay(true)
+                    setcheckcopay(false)
+
+                }} style={styles.bullent_cont} />
+            }<Text style={styles.paytxt} >Request many collection via an agent</Text>
+            
+        </View>
+
+        <View style={[styles.processingCont,{flexDirection:'row',height:83,alignItems:'center',marginTop:responsiveHeight(2)}]} >
+            {checkcopay?
+                <TouchableOpacity onPress={()=>setcheckcopay(false)} style={styles.bullent_cont} >
+                    <View style={styles.bullet_inside} />
+                </TouchableOpacity>
+            :
+                <TouchableOpacity onPress={()=>{
+                    setcheckgpay(false)
+                    setcheckcred(false)
+                    setcheckrqpay(false)
+                    setcheckcopay(true)
+                }} style={styles.bullent_cont} />
+            }<Text style={styles.paytxt} >Add coupon</Text>
+            
         </View>
         
-        <View style={{marginTop:responsiveHeight(30)}} >
-            {checkcred || checkgpay?
-                <GradButton style={{width:335,height:50,borderRadius:8,alignSelf:'center',justifyContent:'center'}} navigation={()=>props.navigation.navigate('Payment')} txt = {'Pay'}/>
+        <View style={{marginTop:responsiveHeight(15)}} >
+            {checkcred || checkgpay || checkrqpay || checkcopay ?
+                <GradButton style={{width:335,height:50,borderRadius:8,alignSelf:'center',justifyContent:'center'}} navigation={()=>{
+                    checkgpay?
+                        props.navigation.navigate('BankPay')
+                    :
+                        props.navigation.navigate('Payment')
+                }} txt = {'Pay'}/>
             :
                 null
             }

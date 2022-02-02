@@ -33,7 +33,7 @@ class Splash extends Component {
   validateLogin (){
     setTimeout(() => {
       // this.props.navigation.replace(this.props.isLoggedIn ? 'Main' : 'Signin');
-      this.props.navigation.navigate('Intro');
+      this.props.navigation.navigate('initialIntro');
     }, 3000);
   }
 

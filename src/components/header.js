@@ -27,10 +27,10 @@ export default function header({ centerstyle,backgroundColor,leftstyle,leftnavig
                 {left != null ?
                 <TouchableOpacity 
                     onPress={leftnavigation} 
-                    style={{justifyContent:'center',marginTop:responsiveHeight(3.5)}} >
+                    style={{justifyContent:'center',marginTop:responsiveHeight(3.5),height:29,width:83.69}} >
                         <Image
                             source={left}
-                            style={leftstyle?leftstyle:{width:22,height:22,marginLeft:8}}
+                            style={leftstyle?leftstyle:{height:29,width:83.69,marginLeft:8}}
                         />
                     </TouchableOpacity>
                 :    
@@ -51,7 +51,7 @@ export default function header({ centerstyle,backgroundColor,leftstyle,leftnavig
             }
             rightComponent={
                 <TouchableOpacity 
-                onPress={()=>alert('coming soon')}
+                onPress={rightnavigation}
                  style={{justifyContent:'center',marginTop:responsiveHeight(3.5)}} >
                     <Image
                         source={right}

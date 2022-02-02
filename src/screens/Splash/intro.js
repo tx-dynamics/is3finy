@@ -11,16 +11,19 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import {useIsFocused} from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/header';
+import LanguageModal from '../../components/lang_modal';
 import GradButton from '../../components/gradient_button';
 import {logo,lang,bullet} from '../../assets';
 import styles from './styles';
 
 function intro (props){
     const [ismodal, setismodal] = useState(false)
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
 
     return(
      <View>
-         <Header   center = {logo} right={lang} left={null} leftstyle={{color:'transparent'}}  />
+         <Header rightnavigation={()=>setlanmodal(true)}  center = {logo} right={lang} left={null} leftstyle={{color:'transparent'}}  />
          <View style={styles.container} >
             <View style={{flexDirection:'row'}} >
                 <Image
@@ -96,6 +99,9 @@ function intro (props){
                 </View>
                 </View>
             </Modal>
+            {lanmodal?
+                <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+            :null}
      </View>   
      
     )

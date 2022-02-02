@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     processingCont:{
       width:335,
-      height:238,
+      height:121,
       backgroundColor:'rgba(108, 226, 0, 0.1)',
       alignItems:'center',
       marginTop:responsiveHeight(5),
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     bulletxt:{color:'black',marginLeft:20,fontSize:14,fontWeight:'500',fontFamily:'Poppins'},
     bullent_cont:{alignItems:'center',justifyContent:'center',width:18,height:18,borderRadius:100,borderWidth:2,borderColor:'#6CE200',marginLeft:responsiveWidth(4)},
     bullet_inside:{width:12,height:12,borderRadius:100,backgroundColor:'#6CE200'},
-    paytxt:{width:'66%',fontFamily:'Lato',fontSize:16,fontWeight:'500',marginLeft:responsiveWidth(4),color:'black'},
+    paytxt:{fontFamily:'Lato',fontSize:16,fontWeight:'500',marginLeft:responsiveWidth(4),color:'black'},
     modalcontainer:{
       marginTop: '50%',
       bottom: 0,

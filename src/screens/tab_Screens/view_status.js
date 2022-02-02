@@ -18,6 +18,8 @@ import {logo,lang,camcros,
 import styles from './styles';
 import { Stopwatch, Timer } from "react-native-stopwatch-timer";
 import VideoPlayer from 'react-native-video-player'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import LanguageModal from '../../components/lang_modal';
 
 const ratingrange = [
         {
@@ -72,6 +74,9 @@ function status (props){
     const [isselected, setisselected] = useState(false)
     const [ismodal, setismodal] = useState(false)
     const [success, setsuccess] = useState(false)
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
+
 
     useEffect(() => {
         setrating(ratingrange)
@@ -117,7 +122,7 @@ function status (props){
             <View style={{flex:1}} >
                 <Header 
                    leftnavigation = {()=>props.navigation.goBack()}
-                   rightnavigation = {props.navigation}
+                   rightnavigation={()=>setlanmodal(true)}
                    center = {logo}
                    right={lang}
                    leftstyle={{color:'white'}}
@@ -162,60 +167,76 @@ function status (props){
                             height: '100%',
                             backgroundColor: 'rgba(64, 77, 97, 0.5)',
                         }}>
-                    <View
-                        style={[styles.modalcontainer,{height:332}]}>
-                        
-                        <Text style={[styles.modaltxt,{fontSize:16,fontWeight:'500',marginTop:responsiveHeight(6)}]} >Out of 10 where 10 is the best how{'\n'} 
-                        much satisfied are you from our{'\n'}
-                        service?</Text>
-                        
-                        <View style={{alignSelf:'center',justifyContent:'center',alignItems:'center',height:150}} >
-                            <FlatList
-                                style={{alignContent:'center', alignSelf:'center',marginTop:responsiveHeight(3)}}
-                                // horizontal={true}
-                                numColumns={6}
-                                data={rating}
-                                renderItem={({ item,index }) => 
-                                <View style={{alignItems:'center'}}>
-                                    {item.selected?
-                                    <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,marginLeft:item.value === '7'?responsiveWidth(13.5):null,backgroundColor:'#6CE200',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
-                                        <Text style={[styles.modaltxt,{fontSize:18,fontWeight:'500',color:'white'}]} >{item.value}</Text>
-                                    </TouchableOpacity>
-                                    :
-                                    
-                                    <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,marginLeft:item.value === '7'?responsiveWidth(13.5):null,backgroundColor:'rgba(108, 226, 0, 0.1)',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
-                                        <Text style={[styles.modaltxt,{fontSize:18,fontWeight:'500',color:'rgba(0, 0, 0, 0.5)'}]} >{item.value}</Text>
-                                    </TouchableOpacity>
+                    <KeyboardAwareScrollView>
+                        <View
+                            style={[styles.modalcontainer,{height:isselected?495:332,alignItems:'flex-start',marginTop:isselected?'35%':'50%'}]}>
+                            
+                            <Text style={[styles.modaltxt,{fontSize:16,fontWeight:'500',marginTop:responsiveHeight(6),alignSelf:'center'}]} >Out of 10 where 10 is the best how{'\n'} 
+                            much satisfied are you from our{'\n'}
+                            service?</Text>
+                            
+                            <View style={{alignSelf:'center',justifyContent:'center',alignItems:'center',width:'79%',height:150}} >
+                                <FlatList
+                                    style={{alignContent:'center', alignSelf:'center',marginTop:responsiveHeight(3)}}
+                                    // horizontal={true}
+                                    numColumns={6}
+                                    data={rating}
+                                    renderItem={({ item,index }) => 
+                                    <View style={{alignItems:'center'}}>
+                                        {item.selected?
+                                            <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,marginLeft:item.value === '7'?responsiveWidth(13.5):null,backgroundColor:'#6CE200',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
+                                                <Text style={[styles.modaltxt,{fontSize:18,fontWeight:'500',color:'white'}]} >{item.value}</Text>
+                                            </TouchableOpacity>
+                                            :
+                                            <TouchableOpacity onPress={()=>selectRating(item.selected,item.value)} style={{borderRadius:100,margin:5,marginLeft:item.value === '7'?responsiveWidth(13.5):null,backgroundColor:'rgba(108, 226, 0, 0.1)',width:39,height:39,alignItems:'center',justifyContent:'center'}} >
+                                                <Text style={[styles.modaltxt,{fontSize:18,fontWeight:'500',color:'rgba(0, 0, 0, 0.5)'}]} >{item.value}</Text>
+                                            </TouchableOpacity>
+                                        }
+                                    </View>
                                     }
-                                </View>
+                                />
+                            </View>
+                            <View style={{width:'79%',alignSelf:'center'}} >
+                                {isselected?
+                                <>
+                                    <Text style={[styles.paytxt,{fontSize:12,textAlign:'left',fontFamily:'Poppins',marginLeft:responsiveWidth(1)}]} >Why you rated this, Let us know how we can{'\n'}improve the service?</Text>
+                                    <View style={[styles.processingCont,{width:'100%',height:122,alignItems:'flex-start',marginTop:responsiveHeight(1)}]} >
+                                        <TextInput
+                                            style={{width:'90%',marginLeft:responsiveWidth(2),fontWeight:'400',fontSize:11,color:'black'}}
+                                            multiline={true}
+                                            placeholder={'Write here'}
+                                            placeholderTextColor={'#929292'}
+                                        />
+                                    </View>
+                                    
+                                </>
+                                :null}
+                            </View>
+                            {isselected?
+                            <TouchableOpacity onPress={()=>{
+                                setismodal(false)
+                                setsuccess(true)
+                                setTimeout(() => {
+                                    setsuccess(false)
+                                    props.navigation.goBack()
+                                }, 2000);                                
+                                }}
+                                style={{alignSelf:'center',alignItems:'center',marginTop:responsiveHeight(1.5)}}>
+                                    <LinearGradient
+                                    start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#7CFF04', '#00AE55']} 
+                                    style={{width:125,height:51,borderRadius:10,justifyContent:'center',alignItems:'center'}}
+                                    >
+                                        <Text style={{color:'#FFFFFF'}} >Submit</Text>
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                                :
+                                <TouchableOpacity style={{width:125,height:51,marginTop:responsiveHeight(1.5),borderRadius:10,justifyContent:'center',alignItems:'center',alignSelf:'center',backgroundColor:'rgba(108, 226, 0, 0.5)'}} >
+                                    <Text style={{color:'#FFFFFF'}} >Submit</Text>
+                                </TouchableOpacity>
                                 }
-                            />
                         </View>
-                        {isselected?
-                        <TouchableOpacity onPress={()=>{
-                            setismodal(false)
-                            setsuccess(true)
-                            setTimeout(() => {
-                                setsuccess(false)
-                                props.navigation.goBack()
-                            }, 2000);                                
-                            }}
-                            style={{alignSelf:'center',alignItems:'center'}}>
-                                <LinearGradient
-                                start={{x: 0, y: 0}} end={{x: 1, y: 0}} colors={['#7CFF04', '#00AE55']} 
-                                style={{width:125,height:51,borderRadius:10,justifyContent:'center',alignItems:'center'}}
-                            >
-                                <Text style={{color:'#FFFFFF'}} >Submit</Text>
-                            </LinearGradient>
-                        </TouchableOpacity>
-                        :
-                        <TouchableOpacity style={{width:125,height:51,borderRadius:10,justifyContent:'center',alignItems:'center',backgroundColor:'rgba(108, 226, 0, 0.5)'}} >
-                                <Text style={{color:'#FFFFFF'}} >Submit</Text>
-
-                            </TouchableOpacity>
-                        }
-                    </View>
-                    </View>
+                    </KeyboardAwareScrollView>
+                        </View>
                 </Modal>
 
                 <Modal
@@ -242,6 +263,9 @@ function status (props){
                     </View>
                     </View>
                 </Modal>
+                {lanmodal?
+                    <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+                :null}
 
             </View>   
             

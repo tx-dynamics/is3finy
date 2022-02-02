@@ -15,17 +15,22 @@ import GradButton from '../../components/gradient_button';
 import RQButton from '../../components/request_button';
 import {logo,lang,bullet,call,text,
     right,
-    back,
+    support,
     add} from '../../assets';
 import styles from './styles';
+import LanguageModal from '../../components/lang_modal';
 
 function processing (props){
+
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
+
+
     return(
      <View>
          <Header             
-            leftstyle={{color:'white'}}
-            leftnavigation = {()=>props.navigation.goBack()}
-            rightnavigation = {props.navigation} center = {logo} right={lang}  />
+            leftnavigation = {()=>props.navigation.navigate('ScreenStack',{screen:'Contact'})}
+            rightnavigation={()=>setlanmodal(true)} center = {logo} right={lang} left={support} />
           <View style={[styles.processingCont,{alignItems:'flex-start',height:246}]} >
           <View style={[styles.container,{marginTop:responsiveHeight(3)}]} >
                 <View style={{flexDirection:'row'}} >
@@ -76,6 +81,9 @@ function processing (props){
                 style={{width:12,height:10.28,alignSelf:'center'}}
             />
         </TouchableOpacity>
+        {lanmodal?
+            <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+        :null}
      </View>   
      
     )

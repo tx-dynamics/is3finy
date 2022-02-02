@@ -44,6 +44,18 @@ const styles = StyleSheet.create({
     elevation: 10,
     height:269
     },
-    modaltxt:{fontSize:13,fontWeight:'400',fontFamily:'Poppins',textAlign:'center',color:'black'}
+    modaltxt:{fontSize:13,fontWeight:'400',fontFamily:'Poppins',textAlign:'center',color:'black'},
+    picker: {
+      alignSelf:'center',
+      color:'black',
+      alignItems:'center',  
+      // marginVertical: 30,
+      fontSize:16,
+      fontWeight:'500',
+      width: responsiveWidth(70),
+      padding: 10,
+      borderWidth: 1,
+      borderColor: "black",
+    },
 });
 export default styles;

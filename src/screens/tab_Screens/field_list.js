@@ -19,6 +19,7 @@ import {logo,lang,bullet,call,text,
     add} from '../../assets';
 import styles from './styles';
 import FieldSelect from '../../components/field_select';
+import LanguageModal from '../../components/lang_modal';
 
 const listarr = [
     {
@@ -110,6 +111,8 @@ function list (props){
     const [arr, setArr] = useState([])
     const [isselected, setisselected] = useState(false)
     const arry = useRef(listarr)
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
 
     useEffect(() => {
         // console.log(listarr);
@@ -164,7 +167,7 @@ function list (props){
          <Header              
             leftstyle={{color:'white'}}
             leftnavigation = {()=>props.navigation.goBack()}
-            rightnavigation = {props.navigation}
+            rightnavigation={()=>setlanmodal(true)}
             center = {logo} right={lang}  />
          <View style={styles.sContainer}>
 
@@ -193,7 +196,9 @@ function list (props){
             null
         }
         </View>
-        
+        {lanmodal?
+            <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+        :null}
         
      </View>   
      

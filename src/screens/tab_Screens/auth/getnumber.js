@@ -15,11 +15,12 @@ import GradButton from '../../../components/gradient_button';
 import {logo,lang,bullet,call,text,
     back,
     patient,
-    pickercon,
+    // pickercon,
     add} from '../../../assets';
-import RNPickerSelect from 'react-native-picker-select';
+import { Picker } from "@react-native-picker/picker";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import LanguageModal from '../../../components/lang_modal';
 
 const sports = [
     {
@@ -42,8 +43,10 @@ function signup (props){
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [conpass, setconpass] = useState('')
-    const [picker, setpicker] = useState(undefined)
-    
+    const [cont, setcont] = useState(undefined)
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
+
 
     return(
     <KeyboardAwareScrollView style={styles.mainContainer} >
@@ -52,30 +55,23 @@ function signup (props){
               leftstyle={{color:'white'}}
               backgroundColor='transparent' 
               leftnavigation = {()=>props.navigation.goBack()}
-              rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang}  />
+              rightnavigation={()=>setlanmodal(true)} center = {logo} right={lang}  />
             <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'600',fontFamily:'Lato'}]} >Enter Phone Number</Text>
-            <View style={styles.contary} >
-                {/* <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'400',fontFamily:'Lato',marginTop:0}]} >US</Text>
-                <Image source={pickercon} style={{width:8.33,height:4.7,marginLeft:responsiveWidth(3)}} /> */}
-                <RNPickerSelect
-                    placeholder={{label:'Select',value:null}}
-                    items={sports}
-                    onValueChange={value => {
-                    setpicker(value)
-                    }}
-                    style={{inputAndroid:{color:'#FFFFFF',width:100,textAlign:'center',fontWeight:'400',fontFamily:'Lato',marginTop:0},iconContainer: {
-                        top: 18,
-                        // left:responsiveWidth(1),
-                      },}}
-                    value={picker}
-                    useNativeAndroidPickerStyle={false}
-                    Icon={() => {
-                        return <Image source={pickercon} style={{width:8.33,height:4.7}} />;
-                      }}
-                    // ref={el => {
-                    // this.inputRefs.favSport1 = el;
-                    // }}
-                />
+            <View style={[styles.contary,{width:150}]} >
+               
+                {/*  */}
+                <Picker
+                    selectedValue={cont}
+                    onValueChange={(value, index) => setcont(value)}
+                    mode="dialog" // Android only
+                    dropdownIconColor={'#FFFFFF'}
+                    style={{color:'white',width:150}}
+                >
+                    <Picker.Item label="Select" value="Unknown" />
+                    <Picker.Item label="US" value="US" />
+                    <Picker.Item label="UK" value="UK" />
+                    <Picker.Item label="Canada" value="Canada" />
+                </Picker>
             </View>
             <View style={styles.container} >
                
@@ -94,7 +90,10 @@ function signup (props){
                 <GradButton style={styles.signup}  navigation={()=>props.navigation.navigate('Otp')} txt = {'Continue'}/>
             </View>
             <View style={{height:responsiveScreenHeight(40)}}  />
-     </ImageBackground>   
+     </ImageBackground>
+     {lanmodal?
+          <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+      :null}
      </KeyboardAwareScrollView>
      
     )

@@ -47,7 +47,7 @@ function payment (props){
                 style={{}} >
                     <Image
                         source={back}
-                        style={{width:16,height:14,marginLeft:8,tintColor:'black'}}
+                        style={{width:16,height:15,marginLeft:8,tintColor:'black'}}
                     />
                 </TouchableOpacity>
             }

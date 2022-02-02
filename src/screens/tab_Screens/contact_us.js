@@ -19,16 +19,18 @@ import {logo,lang,bullet,call,text,
     back,
     add} from '../../assets';
 import styles from './styles';
+import LanguageModal from '../../components/lang_modal';
 
 function category (props){
     const [input, setinput] = useState('')
-
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('UK');
     return(
      <View>
          <Header             
             leftstyle={{color:'white'}}
             leftnavigation = {()=>props.navigation.goBack()}
-            rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang}/>
+            rightnavigation={()=>setlanmodal(true)} center = {logo} right={lang}/>
          <Text style={[styles.heading,{marginTop:responsiveHeight(3)}]} >Contact us</Text>
          <Text style={[styles.selectiontxt,{margin:8}]} >Were are happy to recieve your{'\n'}Feedback and Suggestions</Text>
          <View style={styles.inputConatiner} >
@@ -67,6 +69,9 @@ function category (props){
             />
             <Text style={[styles.selectiontxt,{color:'rgba(0, 0, 0, 0.5)'}]} >Share Via Whatsapp</Text>
         </TouchableOpacity>
+        {lanmodal?
+            <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+        :null}
      </View>   
      
     )

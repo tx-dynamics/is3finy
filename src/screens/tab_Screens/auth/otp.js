@@ -21,9 +21,13 @@ import RNPickerSelect from 'react-native-picker-select';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
 import OTPInputView from '@twotalltotems/react-native-otp-input'
+import LanguageModal from '../../../components/lang_modal';
+
 function signup (props){
     const [ismodal, setismodal] = useState(false)
     const [resend, setresend] = useState(false)
+    const [lanmodal, setlanmodal] = useState(false)
+    const [country, setCountry] = useState('Unknown');
 
 
     return(
@@ -33,7 +37,7 @@ function signup (props){
                 leftstyle={{color:'white'}}
                 backgroundColor='transparent'
                 leftnavigation = {()=>props.navigation.goBack()}
-                rightnavigation = {()=>alert('coming soon')} center = {logo} right={lang}  />
+                rightnavigation={()=>setlanmodal(true)} center = {logo} right={lang}  />
             <Text style={[styles.heading,{color:'#FFFFFF',fontWeight:'600',fontFamily:'Lato'}]} >Enter Code</Text>
             {/* <OTPInputView pinCount={4} /> */}
             <OTPInputView
@@ -102,7 +106,7 @@ function signup (props){
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>{
                 setismodal(false)
-                props.navigation.navigate('PaymentInstruct')
+                props.navigation.navigate('RequestInq')
                 }}
                 style={{alignSelf:'center',alignItems:'center',width:63,height:27,borderRadius:4,marginLeft:responsiveHeight(5)}}>
                      <LinearGradient
@@ -117,6 +121,9 @@ function signup (props){
         </View>
         </View>
     </Modal>
+    {lanmodal?
+        <LanguageModal ismodal={lanmodal} setmodal={()=>setlanmodal(!lanmodal)} country={country} selectcountry={(val)=>setCountry(val)} />
+    :null}
      </KeyboardAwareScrollView>
      
     )

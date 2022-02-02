@@ -15,10 +15,10 @@ import {
     add} from '../assets';
 import styles from '../screens/tab_Screens/styles'
 
- export default function Button({ navigation,img,txt,style,isSelected }) {
+ export default function Button({ navigation,img,txt,style,isSelected,disable }) {
     
     return(
-         <TouchableOpacity onPress={navigation} style={styles.rqBtn}   >
+         <TouchableOpacity disabled={disable} onPress={navigation} style={styles.rqBtn}   >
             <View style={{flexDirection:'row'}}> 
                 <Image
                     source={img}
